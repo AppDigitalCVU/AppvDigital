@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AppvDigital.App_Start;
 using AppvDigital.Controllers;
+using AppvDigital.Infrastructure;
 
 namespace AppvDigital
 {
@@ -14,8 +15,10 @@ namespace AppvDigital
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            UnityConfig.RegisterComponents(); ///cargamos el registro de los componentes para unity
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutomapperWebprofile.Run();
         }
 
         protected void Application_Error(object sender, EventArgs e)
